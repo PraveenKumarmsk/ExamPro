@@ -1,0 +1,44 @@
+{
+  "name": "ExamPro — Government Exam Preparation",
+  "short_name": "ExamPro",
+  "description": "Practice thousands of questions, attempt real exam-style mock tests, and analyze your performance for Indian government exams.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#1e3a8a",
+  "lang": "en-IN",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjMyIiBmaWxsPSIjMWUzYThhIi8+PHBhdGggZD0iTTU0IDEzMlY2MGg3OHYxOEg3MnYxMmg1NHYxOEg3MnYyNHoiIGZpbGw9IiNmZmYiLz48Y2lyY2xlIGN4PSIxNDQiIGN5PSIxNDQiIHI9IjI0IiBmaWxsPSIjN2MzYWVkIi8+PC9zdmc+",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9Ijg4IiBmaWxsPSIjMWUzYThhIi8+PHBhdGggZD0iTTE0NCAzNTJWMTYwaDIwOHY0OEgxOTJ2MzJoMTQ0djQ4SDE5MnY2NHoiIGZpbGw9IiNmZmYiLz48Y2lyY2xlIGN4PSIzODQiIGN5PSIzODQiIHI9IjY0IiBmaWxsPSIjN2MzYWVkIi8+PC9zdmc+",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Mock Tests",
+      "short_name": "Tests",
+      "url": "./tests.html"
+    },
+    {
+      "name": "Practice",
+      "short_name": "Practice",
+      "url": "./practice.html"
+    },
+    {
+      "name": "Dashboard",
+      "short_name": "Dashboard",
+      "url": "./dashboard.html"
+    }
+  ]
+}

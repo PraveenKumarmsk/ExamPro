@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Page not found — ExamPro</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+.header-inner { display: flex; align-items: center; gap: 16px; height: var(--header-h); min-width: 0; }
+.brand { flex-shrink: 0; }
+.nav { display: flex; align-items: center; gap: 2px; margin-left: 4px; flex: 0 1 auto; min-width: 0; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; white-space: nowrap; mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 24px), transparent 100%); -webkit-mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 24px), transparent 100%); }
+.nav::-webkit-scrollbar { display: none; }
+.nav-link { padding: 8px 12px; border-radius: 9px; font-size: 0.86rem; font-weight: 500; color: var(--text-muted); transition: color .15s ease, background-color .15s ease; white-space: nowrap; flex-shrink: 0; }
+.header-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; flex-shrink: 0; }
+.search-inline { position: relative; display: none; align-items: center; flex-shrink: 0; }
+.search-inline svg { position: absolute; left: 11px; width: 16px; height: 16px; color: var(--text-subtle); pointer-events: none; }
+.search-inline input { width: 180px; padding: 9px 12px 9px 36px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-soft); color: var(--text); font-size: 0.85rem; outline: none; }
+.search-inline input:focus { border-color: var(--purple-500); box-shadow: 0 0 0 3px color-mix(in srgb, var(--purple-500) 18%, transparent); }
+@media (min-width: 1280px) { .search-inline { display: flex; } .search-inline input { width: 200px; } }
+@media (max-width: 1100px) { .nav { display: none; } .menu-btn { display: grid; } .btn-ghost.hide-sm { display: none; } }
+@media (max-width: 1100px) { .nav.open { display: flex; position: absolute; top: var(--header-h); left: 0; right: 0; flex-direction: column; gap: 2px; padding: 14px; background: var(--bg-card); border-bottom: 1px solid var(--border); box-shadow: var(--shadow-lg); z-index: 99; max-height: calc(100vh - var(--header-h)); overflow-y: auto; margin-left: 0; mask-image: none; -webkit-mask-image: none; } .nav.open .nav-link { padding: 12px 14px; font-size: 0.92rem; width: 100%; } }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand"><span class="brand-mark">EP</span><span class="brand-name">ExamPro</span></a>
+    <div class="header-actions">
+      <a href="index.html" class="btn btn-primary">Go Home</a>
+    </div>
+  </div>
+</header>
+<main class="error-page">
+  <div>
+    <div class="code">404</div>
+    <h1>Page not found</h1>
+    <p>The page you're looking for doesn't exist or has moved.</p>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+      <a href="index.html" class="btn btn-primary">Go to Home</a>
+      <a href="exams.html" class="btn btn-outline">Browse Exams</a>
+    </div>
+  </div>
+</main>
+</body>
+</html>

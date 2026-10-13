@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Offline — ExamPro</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand"><span class="brand-mark">EP</span><span class="brand-name">ExamPro</span></a>
+    <div class="header-actions">
+      <a href="index.html" class="btn btn-primary">Go Home</a>
+    </div>
+  </div>
+</header>
+
+<main class="error-page">
+  <div>
+    <div class="code" style="font-size:5rem;">📡</div>
+    <h1>You're offline</h1>
+    <p>No internet connection. Pages you've visited before are still available.</p>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+      <button onclick="location.reload()" class="btn btn-primary">Try Again</button>
+      <a href="index.html" class="btn btn-outline">Go to Home</a>
+    </div>
+  </div>
+</main>
+</body>
+</html>

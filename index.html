@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ExamPro — Prepare Smarter. Achieve Your Dream Government Job.</title>
+<meta name="description" content="Practice thousands of questions, attempt real exam-style mock tests, and analyze your performance for SSC, Railway, BPSC, Banking and other Indian government exams." />
+<meta name="theme-color" content="#1e3a8a" />
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231e3a8a'/%3E%3Cpath d='M9 22V10h13v3h-9v2h8v3h-8v4z' fill='%23fff'/%3E%3Ccircle cx='24' cy='24' r='4' fill='%237c3aed'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<style>
+/* Same header fix as before */
+.header-inner { display: flex; align-items: center; gap: 16px; height: var(--header-h); min-width: 0; }
+.brand { flex-shrink: 0; }
+.nav { display: flex; align-items: center; gap: 2px; margin-left: 4px; flex: 0 1 auto; min-width: 0; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; white-space: nowrap; mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 24px), transparent 100%); -webkit-mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 24px), transparent 100%); }
+.nav::-webkit-scrollbar { display: none; }
+.nav-link { padding: 8px 12px; border-radius: 9px; font-size: 0.86rem; font-weight: 500; color: var(--text-muted); transition: color .15s ease, background-color .15s ease; white-space: nowrap; flex-shrink: 0; }
+.header-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; flex-shrink: 0; }
+.search-inline { position: relative; display: none; align-items: center; flex-shrink: 0; }
+.search-inline svg { position: absolute; left: 11px; width: 16px; height: 16px; color: var(--text-subtle); pointer-events: none; }
+.search-inline input { width: 180px; padding: 9px 12px 9px 36px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-soft); color: var(--text); font-size: 0.85rem; outline: none; }
+.search-inline input:focus { border-color: var(--purple-500); box-shadow: 0 0 0 3px color-mix(in srgb, var(--purple-500) 18%, transparent); }
+@media (min-width: 1280px) { .search-inline { display: flex; } .search-inline input { width: 200px; } }
+@media (max-width: 1100px) { .nav { display: none; } .menu-btn { display: grid; } .btn-ghost.hide-sm { display: none; } }
+@media (max-width: 1100px) { .nav.open { display: flex; position: absolute; top: var(--header-h); left: 0; right: 0; flex-direction: column; gap: 2px; padding: 14px; background: var(--bg-card); border-bottom: 1px solid var(--border); box-shadow: var(--shadow-lg); z-index: 99; max-height: calc(100vh - var(--header-h)); overflow-y: auto; margin-left: 0; mask-image: none; -webkit-mask-image: none; } .nav.open .nav-link { padding: 12px 14px; font-size: 0.92rem; width: 100%; } }
+</style>
+</head>
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="index.html" class="brand" aria-label="ExamPro home">
+      <span class="brand-mark">EP</span>
+      <span class="brand-name">ExamPro</span>
+    </a>
+
+    <nav class="nav" id="primaryNav" aria-label="Primary">
+      <a href="index.html" class="nav-link" data-page="home">Home</a>
+      <a href="exams.html" class="nav-link" data-page="exams">All Exams</a>
+      <a href="tests.html" class="nav-link" data-page="tests">Mock Tests</a>
+      <a href="papers.html" class="nav-link" data-page="papers">Previous Papers</a>
+      <a href="practice.html" class="nav-link" data-page="practice">Practice</a>
+      <a href="materials.html" class="nav-link" data-page="materials">Materials</a>
+      <a href="current-affairs.html" class="nav-link" data-page="affairs">Current Affairs</a>
+      <a href="leaderboard.html" class="nav-link" data-page="leaderboard">Results</a>
+      <a href="pricing.html" class="nav-link" data-page="pricing">Pricing</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="search-inline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>
+        </svg>
+        <input type="search" id="headerSearch" placeholder="Search exams…" aria-label="Search exams" />
+      </div>
+
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark mode">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+
+      <a href="login.html" class="btn btn-ghost hide-sm">Login</a>
+      <a href="register.html" class="btn btn-primary">Get Started</a>
+
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<!-- ==================== PROMO CAROUSEL ==================== -->
+<section class="promo-carousel" id="promoCarousel" aria-label="Promotions and offers">
+  <div class="promo-track">
+
+    <!-- SLIDE 1 — Discount / Scholarship -->
+    <!-- 🔁 REPLACE src WITH YOUR OWN IMAGE: images/promo-1.jpg -->
+    <div class="promo-slide active">
+      <a href="pricing.html" aria-label="Get 30% scholarship on premium plans">
+        <img src="images/promo-1.jpg" alt="Get flat 30% scholarship on ExamPro premium plans"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <!-- Fallback (shows if image missing) -->
+        <div class="promo-slide-fallback" style="display:none;">
+          <div class="promo-fb-text">
+            <span class="promo-fb-badge">Limited Offer</span>
+            <div class="promo-fb-title">Get Flat 30% Scholarship</div>
+            <div class="promo-fb-sub">On ExamPro Premium plans — SSC, Railway, BPSC &amp; Banking mock tests.</div>
+            <span class="promo-fb-cta">Register Now →</span>
+          </div>
+          <div class="promo-fb-visual">🎓</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- SLIDE 2 — New Mock Test Series -->
+    <div class="promo-slide">
+      <a href="tests.html" aria-label="New SSC CGL 2026 mock test series launched">
+        <img src="images/promo-2.jpg" alt="New SSC CGL 2026 mock test series now available"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="promo-slide-fallback" style="display:none;">
+          <div class="promo-fb-text">
+            <span class="promo-fb-badge">Just Launched</span>
+            <div class="promo-fb-title">SSC CGL 2026 Mock Series</div>
+            <div class="promo-fb-sub">Full-length tests in real CBT interface with detailed analytics.</div>
+            <span class="promo-fb-cta">Start Practicing →</span>
+          </div>
+          <div class="promo-fb-visual">📝</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- SLIDE 3 — Free Trial -->
+    <div class="promo-slide">
+      <a href="register.html" aria-label="Start your free trial today">
+        <img src="images/promo-3.jpg" alt="Start ExamPro free — no credit card needed"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="promo-slide-fallback" style="display:none;">
+          <div class="promo-fb-text">
+            <span class="promo-fb-badge">100% Free</span>
+            <div class="promo-fb-title">Start Free. No Card Needed.</div>
+            <div class="promo-fb-sub">Daily quizzes, mock tests and analytics — free forever.</div>
+            <span class="promo-fb-cta">Create Account →</span>
+          </div>
+          <div class="promo-fb-visual">🚀</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- SLIDE 4 — Bihar / Regional Focus -->
+    <div class="promo-slide">
+      <a href="exams.html" aria-label="BPSC and Bihar Police exam preparation">
+        <img src="images/promo-4.jpg" alt="BPSC and Bihar Police exam preparation in Hindi and English"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="promo-slide-fallback" style="display:none;">
+          <div class="promo-fb-text">
+            <span class="promo-fb-badge">For Bihar Aspirants</span>
+            <div class="promo-fb-title">BPSC · Bihar Police · BSSC</div>
+            <div class="promo-fb-sub">Bilingual practice material in Hindi &amp; English with PYQs.</div>
+            <span class="promo-fb-cta">Explore Exams →</span>
+          </div>
+          <div class="promo-fb-visual">📚</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- SLIDE 5 — Current Affairs Daily -->
+    <div class="promo-slide">
+      <a href="current-affairs.html" aria-label="Daily current affairs quizzes">
+        <img src="images/promo-5.jpg" alt="Daily current affairs quiz for government exams"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="promo-slide-fallback" style="display:none;">
+          <div class="promo-fb-text">
+            <span class="promo-fb-badge">Updated Daily</span>
+            <div class="promo-fb-title">Current Affairs Quiz</div>
+            <div class="promo-fb-sub">10 fresh questions every day — stay ahead of the exam.</div>
+            <span class="promo-fb-cta">Take Today's Quiz →</span>
+          </div>
+          <div class="promo-fb-visual">📰</div>
+        </div>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Arrows -->
+  <button class="promo-arrow prev" id="promoPrev" aria-label="Previous slide">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M15 18l-6-6 6-6"/>
+    </svg>
+  </button>
+  <button class="promo-arrow next" id="promoNext" aria-label="Next slide">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 18l6-6-6-6"/>
+    </svg>
+  </button>
+
+  <!-- Dots -->
+  <div class="promo-dots" id="promoDots" role="tablist" aria-label="Slide navigation"></div>
+
+  <!-- Progress bar -->
+  <div class="promo-progress"><div class="promo-progress-fill" id="promoProgress"></div></div>
+</section>
+
+<main>
+
+<!-- ==================== HERO (with photo) ==================== -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <span class="hero-eyebrow">
+        <span class="dot-live"></span>
+        India's smart exam preparation platform
+      </span>
+
+      <h1 class="hero-title">
+        Prepare Smarter.<br/>
+        Practice Better.<br/>
+        <span class="gradient-text">Achieve Your Dream Government Job.</span>
+      </h1>
+
+      <p class="hero-lead">
+        Practice thousands of questions, attempt real exam-style mock tests,
+        analyze your performance, and prepare confidently for your next
+        government examination.
+      </p>
+
+      <form class="hero-search" id="heroSearchForm" role="search" action="exams.html" method="get">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>
+        </svg>
+        <input type="search" id="heroSearch" name="q" placeholder="Search exams — SSC CGL, RRB NTPC, BPSC…" aria-label="Search exams" />
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+
+      <div class="hero-ctas">
+        <a href="tests.html" class="btn btn-primary btn-lg">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          Start Free Mock Test
+        </a>
+        <a href="exams.html" class="btn btn-outline btn-lg">Explore All Exams</a>
+      </div>
+
+      <div class="hero-popular">
+        <span class="popular-label">Popular:</span>
+        <a href="exam-detail.html?exam=CGL" class="chip">SSC CGL</a>
+        <a href="exam-detail.html?exam=MTS" class="chip">SSC MTS</a>
+        <a href="exam-detail.html?exam=GD" class="chip">SSC GD</a>
+        <a href="exam-detail.html?exam=NTPC" class="chip">RRB NTPC</a>
+        <a href="exam-detail.html?exam=GRPD" class="chip">RRB Group D</a>
+        <a href="exam-detail.html?exam=BPSC" class="chip">BPSC</a>
+        <a href="exam-detail.html?exam=BP" class="chip">Bihar Police</a>
+        <a href="exam-detail.html?exam=BANK" class="chip">Banking</a>
+      </div>
+    </div>
+
+    <!-- Hero photo (replaces the mock exam window) -->
+    <div class="hero-visual" style="position:relative;">
+      <div class="hero-photo-wrap">
+        <!-- Replace with your own photo -->
+        <img
+          src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80"
+          alt="Student preparing for government exams with ExamPro"
+          loading="eager" />
+        <div class="hero-photo-caption">
+          <span class="badge">📚 Built for serious aspirants</span>
+          <h3>Practice like it's the real exam.</h3>
+          <p>Real CBT interface · Subject analytics · Previous year papers</p>
+        </div>
+      </div>
+
+      <!-- Floating stat chips -->
+      <div class="hero-stats-float">
+        <div class="hero-stat-chip">
+          <span class="emoji">🎯</span>
+          <span>Accuracy <span class="num">—</span></span>
+        </div>
+        <div class="hero-stat-chip">
+          <span class="emoji">🔥</span>
+          <span>Streak <span class="num">Day 0</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TRUST STRIP ==================== -->
+<section class="trust-strip">
+  <div class="container">
+    <p class="trust-strip-label">Trusted by aspirants preparing for</p>
+    <div class="trust-grid">
+      <div class="trust-item"><span class="ico">🏛️</span> SSC CGL · CHSL · MTS · GD</div>
+      <div class="trust-item"><span class="ico">🚆</span> RRB NTPC · Group D · ALP</div>
+      <div class="trust-item"><span class="ico">📜</span> BPSC · Bihar SSC · Bihar Police</div>
+      <div class="trust-item"><span class="ico">🏦</span> IBPS · SBI · RRB</div>
+      <div class="trust-item"><span class="ico">🎓</span> UPSC · State PCS</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== STATS ==================== -->
+<section class="stats" id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-num" data-count="0">0</div>
+        <div class="stat-lbl">Registered Students</div>
+        <div class="stat-note">New platform</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" data-count="12">0</div>
+        <div class="stat-lbl">Available Exams</div>
+        <div class="stat-note">SSC · Railway · Bihar · More</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" data-count="2">0</div>
+        <div class="stat-lbl">Mock Tests</div>
+        <div class="stat-note">Growing weekly</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" data-count="40">0</div>
+        <div class="stat-lbl">Practice Questions</div>
+        <div class="stat-note">Demo content</div>
+      </div>
+    </div>
+    <p class="stats-footnote">
+      Numbers update automatically as the platform grows. We never display fake counts.
+    </p>
+  </div>
+</section>
+
+<!-- ==================== PHOTO GALLERY STRIP ==================== -->
+<section class="section" style="padding-top:44px;padding-bottom:0;">
+  <div class="container">
+    <div class="gallery-strip-head">
+      <span class="section-eyebrow">Inside ExamPro</span>
+      <h2>Where serious preparation happens</h2>
+      <p>Real students, real focus, real results.</p>
+    </div>
+
+    <div class="gallery-strip-grid">
+      <div class="gallery-strip-item">
+        <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=400&q=80" alt="Student studying" loading="lazy" />
+        <span class="label">Focused study</span>
+      </div>
+      <div class="gallery-strip-item">
+        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=400&q=80" alt="Notes and preparation" loading="lazy" />
+        <span class="label">Revision notes</span>
+      </div>
+      <div class="gallery-strip-item">
+        <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=400&q=80" alt="Library study" loading="lazy" />
+        <span class="label">Deep work</span>
+      </div>
+      <div class="gallery-strip-item">
+        <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=400&q=80" alt="Mock test attempt" loading="lazy" />
+        <span class="label">Mock attempt</span>
+      </div>
+      <div class="gallery-strip-item">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=400&q=80" alt="Group study" loading="lazy" />
+        <span class="label">Group practice</span>
+      </div>
+      <div class="gallery-strip-item">
+        <img src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?auto=format&fit=crop&w=400&q=80" alt="Student planning" loading="lazy" />
+        <span class="label">Daily planning</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABOUT EXAMPRO ==================== -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image">
+        <!-- Replace with your own photo -->
+        <img
+          src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=900&q=80"
+          alt="ExamPro team working on exam preparation content"
+          loading="lazy" />
+        <div class="about-image-badge">
+          <span class="num">2026</span>
+          <span class="lbl">Founded<br/>in India</span>
+        </div>
+      </div>
+
+      <div class="about-content">
+        <span class="section-eyebrow">Our story</span>
+        <h2>Built by aspirants, for aspirants.</h2>
+        <p>
+          ExamPro started because we saw too many aspirants paying for content that didn't help,
+          or worse — didn't exist. We wanted a platform that showed <strong>real progress,
+          real analytics, and real questions</strong>, without inflated numbers or fake testimonials.
+        </p>
+        <p>
+          Every mock test, note, and question is reviewed before it goes live. We're building
+          ExamPro in public — adding tests and materials as they're verified, and keeping the
+          free tier genuinely useful.
+        </p>
+
+        <ul class="about-list">
+          <li><span class="check">✓</span> Honest content — no fake stats, no invented leaderboards</li>
+          <li><span class="check">✓</span> Bilingual — English &amp; Hindi with clear labelling</li>
+          <li><span class="check">✓</span> Free tier that actually works, forever</li>
+          <li><span class="check">✓</span> Focused on what moves your score</li>
+        </ul>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;">
+          <a href="about.html" class="btn btn-primary">Read more about us</a>
+          <a href="contact.html" class="btn btn-outline">Contact us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== MEET THE TEAM (FOUNDER + CO-FOUNDER) ==================== -->
+<!-- ==================== MEET THE TEAM (FOUNDER + CO-FOUNDER SIDE-BY-SIDE) ==================== -->
+<section class="section section-alt" id="team">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow">Meet the team</span>
+      <h2 class="section-title">The people behind ExamPro</h2>
+      <p class="section-sub">A small team obsessed with helping aspirants actually clear their exams.</p>
+    </div>
+
+    <!-- ===== Founder + Co-Founder — ONE BIG DIV, side-by-side ===== -->
+    <div class="team-leadership">
+
+      <!-- LEFT: Founder & CEO -->
+      <article class="team-leader-card">
+        <div class="team-photo">
+          <!-- 🔁 Replace with your founder's photo -->
+          <img
+            src="images/founder.jpeg"
+            alt="Abhishek Kumar — Founder & CEO of ExamPro"
+            loading="lazy" />
+        </div>
+        <h3>Abhishek Kumar</h3>
+        <div class="role">Founder &amp; CEO</div>
+        <p>
+          Former SSC CGL aspirant, Abhishek spent 4 years preparing for government
+          exams before realising the biggest problem wasn't the syllabus — it was
+          the lack of honest, structured practice material. He started ExamPro to
+          fix that.
+        </p>
+        <blockquote>
+          "I want every aspirant to know exactly where they stand — no false hope,
+          no fake numbers. Just real progress."
+        </blockquote>
+        <div class="team-socials">
+          <a href="#" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.27c-.97 0-1.75-.79-1.75-1.76s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.76-1.75 1.76zm13.5 12.27h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-11h2.88v1.5h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.6v6.46z"/></svg>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- RIGHT: Co-Founder & Head of Content -->
+      <article class="team-leader-card alt">
+        <div class="team-photo">
+          <!-- 🔁 Replace with your co-founder's photo -->
+          <img
+            src="images/cofounder.jpg"
+            alt="Praveen Kumar — Co-founder & Head of Content at ExamPro"
+            loading="lazy" />
+        </div>
+        <h3>Praveen Kumar</h3>
+        <div class="role">Co-founder &amp; Head of Content</div>
+        <p>
+          Ex-teacher with 8 years of classroom experience. Praveen leads the team
+          that writes, reviews, and verifies every question published on ExamPro
+          — so students never study the wrong thing.
+        </p>
+        <blockquote>
+          "Every question on ExamPro is checked twice before a student sees it.
+          If it isn't exam-worthy, it doesn't get published."
+        </blockquote>
+        <div class="team-socials">
+          <a href="#" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.27c-.97 0-1.75-.79-1.75-1.76s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.76-1.75 1.76zm13.5 12.27h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-11h2.88v1.5h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.6v6.46z"/></svg>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+      </article>
+
+    </div>
+    <!-- ===== /Founder + Co-Founder ===== -->
+
+    <!-- Remaining team members below (unchanged) -->
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-photo">
+          <img
+            src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80"
+            alt="Rohan Verma — Head of Engineering"
+            loading="lazy" />
+        </div>
+        <h3>Rohan Verma</h3>
+        <div class="team-role">Head of Engineering</div>
+        <p class="team-bio">Builds the exam interface, analytics engine, and the entire platform. Obsessed with performance and accessibility.</p>
+        <div class="team-socials">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.27c-.97 0-1.75-.79-1.75-1.76s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.76-1.75 1.76zm13.5 12.27h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-11h2.88v1.5h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.6v6.46z"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">
+          <img
+            src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80"
+            alt="Anjali Mehta — Head of Student Success"
+            loading="lazy" />
+        </div>
+        <h3>Anjali Mehta</h3>
+        <div class="team-role">Head of Student Success</div>
+        <p class="team-bio">Talks to aspirants every day. Makes sure the free tier stays useful and every student gets the support they need.</p>
+        <div class="team-socials">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.27c-.97 0-1.75-.79-1.75-1.76s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.76-1.75 1.76zm13.5 12.27h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-11h2.88v1.5h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.6v6.46z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">
+          <img
+            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80"
+            alt="Sneha Iyer — Content Reviewer"
+            loading="lazy" />
+        </div>
+        <h3>Sneha Iyer</h3>
+        <div class="team-role">Content Reviewer</div>
+        <p class="team-bio">Reviews every question for accuracy before publishing. Ensures nothing misleading reaches our students.</p>
+        <div class="team-socials">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.27c-.97 0-1.75-.79-1.75-1.76s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.76-1.75 1.76zm13.5 12.27h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-11h2.88v1.5h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.6v6.46z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">
+          <img
+            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80"
+            alt="Karan Singh — Community Manager"
+            loading="lazy" />
+        </div>
+        <h3>Karan Singh</h3>
+        <div class="team-role">Community Manager</div>
+        <p class="team-bio">Runs our student community, webinars, and doubt sessions. First to reply when you need help.</p>
+        <div class="team-socials">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.27c-.97 0-1.75-.79-1.75-1.76s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.76-1.75 1.76zm13.5 12.27h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-11h2.88v1.5h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.6v6.46z"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== SUCCESS STORIES / TESTIMONIALS ==================== -->
+<section class="section" id="testimonials">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow">Success stories</span>
+      <h2 class="section-title">Real aspirants. Real progress.</h2>
+      <p class="section-sub">We only publish verified stories. These will be added as students complete their first attempts.</p>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <span class="testimonial-quote-mark">"</span>
+        <p class="testimonial-text">
+          ExamPro's mock tests felt like the actual SSC CGL exam. The analytics showed exactly
+          which topics I was weak in — I fixed them in three weeks.
+        </p>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-author">
+          <img
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
+            alt="Rahul S."
+            loading="lazy" />
+          <div>
+            <div class="name">Rahul Singh</div>
+            <div class="meta">SSC CGL Aspirant · Patna</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <span class="testimonial-quote-mark">"</span>
+        <p class="testimonial-text">
+          I love that the free tier is actually usable. Most apps lock everything behind a paywall.
+          ExamPro lets you prepare properly before paying anything.
+        </p>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-author">
+          <img
+            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80"
+            alt="Neha K."
+            loading="lazy" />
+          <div>
+            <div class="name">Neha Kumari</div>
+            <div class="meta">RRB NTPC Aspirant · Ranchi</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <span class="testimonial-quote-mark">"</span>
+        <p class="testimonial-text">
+          The Hindi + English support is a huge plus. My parents read Hindi and I study in English —
+          we can finally discuss my preparation at home.
+        </p>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-author">
+          <img
+            src="https://images.unsplash.com/photo-1531891437562-4301cf35b7e4?auto=format&fit=crop&w=200&q=80"
+            alt="Amit P."
+            loading="lazy" />
+          <div>
+            <div class="name">Amit Patel</div>
+            <div class="meta">BPSC Aspirant · Gaya</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="center mt-6 muted" style="font-size:.82rem;">
+      These are placeholder cards. Real verified testimonials will appear as students complete tests.
+    </p>
+  </div>
+</section>
+
+<!-- ==================== EXAMS ==================== -->
+<section class="section section-alt" id="exams">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow">Browse by exam</span>
+      <h2 class="section-title">Popular Government Exams</h2>
+      <p class="section-sub">Pick your target exam and start preparing with curated mock tests and question banks.</p>
+    </div>
+
+    <div class="tabs" id="examTabs" role="tablist">
+      <button class="tab active" data-cat="all" role="tab">All Exams</button>
+      <button class="tab" data-cat="ssc" role="tab">SSC</button>
+      <button class="tab" data-cat="railway" role="tab">Railway</button>
+      <button class="tab" data-cat="bihar" role="tab">BPSC &amp; Bihar</button>
+      <button class="tab" data-cat="other" role="tab">Other Exams</button>
+    </div>
+
+    <div class="exam-grid" id="examGrid"></div>
+
+    <div style="text-align:center;margin-top:32px;">
+      <a href="exams.html" class="btn btn-outline btn-lg">View All Exams →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TEST CATEGORIES ==================== -->
+<section class="section" id="tests">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow">Practice your way</span>
+      <h2 class="section-title">Every Kind of Test, Organised</h2>
+      <p class="section-sub">From full-length mocks to quick daily quizzes — pick the format that fits your schedule.</p>
+    </div>
+
+    <div class="category-grid">
+      <a class="category-card" href="practice.html"><span class="category-ico">🛠️</span><span class="category-name">Custom Test</span><span class="category-desc">Build your own</span></a>
+      <a class="category-card" href="exams.html"><span class="category-ico">🎓</span><span class="category-name">Exam-wise Test</span><span class="category-desc">Target one exam</span></a>
+      <a class="category-card" href="tests.html"><span class="category-ico">📚</span><span class="category-name">Subject-wise Test</span><span class="category-desc">Focused practice</span></a>
+      <a class="category-card" href="practice.html"><span class="category-ico">📖</span><span class="category-name">Chapter-wise Test</span><span class="category-desc">Deep dive</span></a>
+      <a class="category-card" href="practice.html"><span class="category-ico">🔖</span><span class="category-name">Topic-wise Test</span><span class="category-desc">Micro practice</span></a>
+      <a class="category-card" href="papers.html"><span class="category-ico">📅</span><span class="category-name">Year-wise Papers</span><span class="category-desc">PYQ practice</span></a>
+      <a class="category-card" href="tests.html"><span class="category-ico">🎯</span><span class="category-name">Full-Length Mock</span><span class="category-desc">Exam-day ready</span></a>
+      <a class="category-card" href="tests.html"><span class="category-ico">🧩</span><span class="category-name">Sectional Tests</span><span class="category-desc">One section at a time</span></a>
+      <a class="category-card" href="practice.html"><span class="category-ico">⚡</span><span class="category-name">Daily Practice</span><span class="category-desc">Build a habit</span></a>
+      <a class="category-card" href="current-affairs.html"><span class="category-ico">📰</span><span class="category-name">Daily Quizzes</span><span class="category-desc">Current affairs</span></a>
+      <a class="category-card" href="papers.html"><span class="category-ico">📄</span><span class="category-name">PYQ</span><span class="category-desc">Past questions</span></a>
+      <a class="category-card" href="practice.html"><span class="category-ico">⭐</span><span class="category-name">Important Qs</span><span class="category-desc">High-yield only</span></a>
+      <a class="category-card" href="tests.html"><span class="category-ico">🚀</span><span class="category-name">Speed Tests</span><span class="category-desc">Timed drills</span></a>
+      <a class="category-card" href="practice.html"><span class="category-ico">🔁</span><span class="category-name">Revision Tests</span><span class="category-desc">Reinforce learning</span></a>
+      <a class="category-card" href="tests.html"><span class="category-ico">🆓</span><span class="category-name">Free Mock Tests</span><span class="category-desc">Start free</span></a>
+      <a class="category-card" href="pricing.html"><span class="category-ico">👑</span><span class="category-name">Premium Series</span><span class="category-desc">Full access</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== WHY CHOOSE ==================== -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow">Why ExamPro</span>
+      <h2 class="section-title">Built for Serious Aspirants</h2>
+      <p class="section-sub">Every feature is designed around what actually moves your score.</p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-ico">📊</div>
+        <h3>Deep Performance Analytics</h3>
+        <p>Subject-wise, chapter-wise, and topic-wise breakdown of every attempt. Know exactly where to focus.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-ico">🎯</div>
+        <h3>Real Exam Interface</h3>
+        <p>Computer-based test experience with question palette, timer, mark-for-review, and section navigation.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-ico">🧠</div>
+        <h3>Custom Practice</h3>
+        <p>Build your own test by exam, subject, chapter, difficulty, and question count — practise what you need.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-ico">📚</div>
+        <h3>Structured Question Bank</h3>
+        <p>Questions organised by exam, subject, chapter, and topic, with explanations reviewed before publishing.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-ico">🔁</div>
+        <h3>Smart Revision</h3>
+        <p>Auto-collect incorrect questions, bookmarked items, and unattempted items into a personal revision queue.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-ico">🌐</div>
+        <h3>Bilingual Support</h3>
+        <p>English and Hindi, with honest labelling when a translation isn't available yet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== HOW IT WORKS ==================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow">How it works</span>
+      <h2 class="section-title">From Sign-up to Score Improvement</h2>
+      <p class="section-sub">Four simple steps that keep you moving forward.</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Choose Your Exam</h3>
+        <p>Pick from SSC, Railway, Bihar, Banking, UPSC and more.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Attempt a Test</h3>
+        <p>Take a full-length mock, subject test, or build a custom test in seconds.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Analyse Results</h3>
+        <p>See accuracy, time-per-question, and subject-wise strengths instantly.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h3>Revise &amp; Improve</h3>
+        <p>Revisit incorrect questions, practise weak areas, watch your score climb.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== LEADERBOARD ==================== -->
+<section class="section section-alt" id="leaderboard">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow">Results &amp; rankings</span>
+      <h2 class="section-title">Verified Leaderboards</h2>
+      <p class="section-sub">Real performance-based rankings — nothing fabricated, ever.</p>
+    </div>
+
+    <div class="empty-state">
+      <div class="empty-ico">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18"/><path d="m7 14 4-4 4 4 6-6"/></svg>
+      </div>
+      <h3>Rankings will appear here soon</h3>
+      <p>Once students begin attempting tests, verified leaderboards get published. We don't invent names, scores, or ranks.</p>
+      <a href="tests.html" class="btn btn-primary">Attempt a Test</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PRACTICE ==================== -->
+<section class="section" id="practice">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow">Chapter &amp; topic practice</span>
+      <h2 class="section-title">Master One Chapter at a Time</h2>
+      <p class="section-sub">Pick a subject, choose a chapter, and drill questions until it clicks.</p>
+    </div>
+
+    <div class="subject-grid">
+      <a class="subject-card" href="practice.html">
+        <div class="subject-head"><span class="subject-ico">➗</span><h3>Mathematics</h3></div>
+        <div class="chips"><span class="chip-sm">Number System</span><span class="chip-sm">Percentage</span><span class="chip-sm">Time &amp; Work</span><span class="chip-sm">Profit &amp; Loss</span><span class="chip-sm">Geometry</span><span class="chip-sm">Algebra</span></div>
+      </a>
+      <a class="subject-card" href="practice.html">
+        <div class="subject-head"><span class="subject-ico">🧩</span><h3>Reasoning</h3></div>
+        <div class="chips"><span class="chip-sm">Series</span><span class="chip-sm">Coding-Decoding</span><span class="chip-sm">Blood Relations</span><span class="chip-sm">Syllogism</span><span class="chip-sm">Non-Verbal</span></div>
+      </a>
+      <a class="subject-card" href="practice.html">
+        <div class="subject-head"><span class="subject-ico">🌍</span><h3>General Awareness</h3></div>
+        <div class="chips"><span class="chip-sm">History</span><span class="chip-sm">Geography</span><span class="chip-sm">Polity</span><span class="chip-sm">Economics</span><span class="chip-sm">Current Affairs</span></div>
+      </a>
+      <a class="subject-card" href="practice.html">
+        <div class="subject-head"><span class="subject-ico">🔬</span><h3>General Science</h3></div>
+        <div class="chips"><span class="chip-sm">Physics</span><span class="chip-sm">Chemistry</span><span class="chip-sm">Biology</span></div>
+      </a>
+      <a class="subject-card" href="practice.html">
+        <div class="subject-head"><span class="subject-ico">📖</span><h3>English</h3></div>
+        <div class="chips"><span class="chip-sm">Grammar</span><span class="chip-sm">Vocabulary</span><span class="chip-sm">Reading Comp.</span><span class="chip-sm">Cloze Test</span></div>
+      </a>
+      <a class="subject-card" href="practice.html">
+        <div class="subject-head"><span class="subject-ico">🕉️</span><h3>हिन्दी</h3></div>
+        <div class="chips"><span class="chip-sm">व्याकरण</span><span class="chip-sm">संधि</span><span class="chip-sm">समास</span><span class="chip-sm">मुहावरे</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== MATERIALS & AFFAIRS ==================== -->
+<section class="section section-alt" id="materials">
+  <div class="container">
+    <div class="split">
+      <a class="split-col" href="materials.html" style="text-decoration:none;">
+        <div class="split-head">
+          <span class="section-eyebrow">Study materials</span>
+          <h2>Free Notes &amp; PDFs</h2>
+          <p>Notes, syllabus, and exam patterns curated by our editorial team — added as they're reviewed.</p>
+        </div>
+        <div class="mini-empty">
+          <span class="mini-empty-ico">📘</span>
+          <div><strong>Materials coming soon</strong><span>Our team is preparing the first batch.</span></div>
+        </div>
+      </a>
+      <a class="split-col" href="current-affairs.html" id="affairs" style="text-decoration:none;">
+        <div class="split-head">
+          <span class="section-eyebrow">Current affairs</span>
+          <h2>Daily &amp; Monthly Updates</h2>
+          <p>Current affairs quizzes and important exam updates, published on a daily schedule.</p>
+        </div>
+        <div class="mini-empty">
+          <span class="mini-empty-ico">📰</span>
+          <div><strong>Updates coming soon</strong><span>Daily digest launches once editorial pipeline is live.</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PAPERS ==================== -->
+<section class="section" id="papers">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow">Previous year papers</span>
+      <h2 class="section-title">Practice with Real Papers</h2>
+      <p class="section-sub">Year-wise question papers organised by exam and shift. Added as licensing permits.</p>
+    </div>
+
+    <div class="paper-strip">
+      <a href="papers.html" class="paper-card"><span class="paper-year">2023</span><span class="paper-exam">SSC CGL</span><span class="paper-name">Tier 1 — Shift 1</span></a>
+      <a href="papers.html" class="paper-card"><span class="paper-year">2023</span><span class="paper-exam">RRB NTPC</span><span class="paper-name">CBT 1 — Shift 2</span></a>
+      <a href="papers.html" class="paper-card"><span class="paper-year">2022</span><span class="paper-exam">SSC CHSL</span><span class="paper-name">Tier 1 — Shift 1</span></a>
+      <a href="papers.html" class="paper-card"><span class="paper-year">2022</span><span class="paper-exam">BPSC CCE</span><span class="paper-name">Prelims — GS</span></a>
+    </div>
+    <p class="center mt-4 muted" style="font-size:.85rem">Full paper archive launching soon. Demo cards only.</p>
+  </div>
+</section>
+
+<!-- ==================== PRICING ==================== -->
+<section class="section section-alt" id="pricing">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow">Plans</span>
+      <h2 class="section-title">Free to Start. Premium to Accelerate.</h2>
+      <p class="section-sub">The core platform works fully in free mode. Premium unlocks the full practice library.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="plan">
+        <div class="plan-name">Free</div>
+        <div class="plan-price"><span class="price-num">Free</span><span class="price-period">forever</span></div>
+        <ul class="plan-features">
+          <li>Daily free quizzes</li>
+          <li>Selected mock tests</li>
+          <li>Basic result analysis</li>
+          <li>Selected previous-year questions</li>
+        </ul>
+        <a href="register.html" class="btn btn-outline" style="width:100%">Start Free</a>
+      </div>
+
+      <div class="plan">
+        <div class="plan-name">Monthly</div>
+        <div class="plan-price"><span class="price-num">₹299</span><span class="price-period">/month</span></div>
+        <ul class="plan-features">
+          <li>All mock tests</li>
+          <li>Advanced analytics</li>
+          <li>Detailed solutions</li>
+          <li>PDF reports</li>
+        </ul>
+        <a href="register.html" class="btn btn-outline" style="width:100%">Choose Monthly</a>
+      </div>
+
+      <div class="plan popular">
+        <div class="plan-badge">Most Popular</div>
+        <div class="plan-name">Quarterly</div>
+        <div class="plan-price"><span class="price-num">₹799</span><span class="price-period">/3 months</span></div>
+        <ul class="plan-features">
+          <li>Everything in Monthly</li>
+          <li>Save 11%</li>
+          <li>Priority support</li>
+          <li>Personalised revision</li>
+        </ul>
+        <a href="register.html" class="btn btn-primary" style="width:100%">Choose Quarterly</a>
+      </div>
+
+      <div class="plan">
+        <div class="plan-name">Annual</div>
+        <div class="plan-price"><span class="price-num">₹2,499</span><span class="price-period">/year</span></div>
+        <ul class="plan-features">
+          <li>Everything in Quarterly</li>
+          <li>Save 30%</li>
+          <li>Early access to new tests</li>
+        </ul>
+        <a href="register.html" class="btn btn-outline" style="width:100%">Choose Annual</a>
+      </div>
+    </div>
+
+    <p class="center mt-6 muted" style="font-size:.82rem">
+      Payments are not yet enabled. Razorpay integration will be added after merchant credentials and webhook verification are configured.
+    </p>
+  </div>
+</section>
+
+<!-- ==================== FAQ ==================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow">FAQ</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-sub">Quick answers to common questions.</p>
+    </div>
+
+    <div class="faq">
+      <details open><summary>Is ExamPro free to use?</summary><p>Yes — daily quizzes, selected mock tests, and basic analytics are free forever. Premium plans unlock the full test series and advanced analytics.</p></details>
+      <details><summary>Which exams are covered?</summary><p>SSC, Railway, BPSC &amp; Bihar exams, Banking (IBPS/SBI), UPSC, State PCS, and Police &amp; Defence exams. New exams are added regularly.</p></details>
+      <details><summary>Can I create my own test?</summary><p>Yes. Use the Custom Test Builder to select exam, subject, chapter, topic, difficulty, question count, and duration.</p></details>
+      <details><summary>Are previous year papers official?</summary><p>Only where licensing permits. Demo content is clearly labelled and not represented as official exam material.</p></details>
+      <details><summary>Do you support Hindi?</summary><p>Bilingual support is being rolled out. Where a Hindi translation isn't available, the question clearly indicates it rather than showing incorrect translations.</p></details>
+      <details><summary>Is my data safe?</summary><p>We use secure authentication, encrypted connections, and never share personal information publicly.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CTA ==================== -->
+<section class="section cta-section">
+  <div class="container">
+    <div class="cta-card">
+      <div class="cta-content">
+        <h2>Ready to start your preparation?</h2>
+        <p>Join ExamPro, attempt your first free mock test, and see exactly where you stand.</p>
+        <div class="cta-buttons">
+          <a href="register.html" class="btn btn-primary btn-lg">Create Free Account</a>
+          <a href="tests.html" class="btn btn-outline btn-lg">Browse Mock Tests</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <span class="brand-mark">EP</span>
+          <span class="brand-name">ExamPro</span>
+        </a>
+        <p>Smart exam preparation for Indian government job aspirants. Practice, analyse, and improve.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Prepare</h4>
+        <ul>
+          <li><a href="exams.html">All Exams</a></li>
+          <li><a href="tests.html">Mock Tests</a></li>
+          <li><a href="papers.html">Previous Papers</a></li>
+          <li><a href="practice.html">Practice</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="materials.html">Study Materials</a></li>
+          <li><a href="current-affairs.html">Current Affairs</a></li>
+          <li><a href="leaderboard.html">Results &amp; Rankings</a></li>
+          <li><a href="pricing.html">Premium Plans</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Support</a></li>
+          <li><a href="admin/index.html">Admin</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="refund.html">Refund Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> ExamPro. All rights reserved.</span>
+      <span>Made in India 🇮🇳</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ==================== PWA INSTALL PROMPT ==================== -->
+<div id="installPrompt" style="display:none;position:fixed;bottom:16px;right:16px;z-index:200;max-width:340px;padding:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow-xl);">
+  <div style="display:flex;gap:12px;align-items:flex-start;">
+    <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--navy-700),var(--purple-600));display:grid;place-items:center;color:#fff;font-weight:900;font-size:13px;flex-shrink:0;">EP</div>
+    <div style="flex:1;min-width:0;">
+      <strong style="font-size:.88rem;display:block;margin-bottom:4px;">Install ExamPro</strong>
+      <p style="font-size:.78rem;color:var(--text-muted);margin-bottom:10px;">Add to your home screen for a faster, app-like experience.</p>
+      <div style="display:flex;gap:8px;">
+        <button id="installBtn" class="btn btn-primary" style="padding:6px 12px;font-size:.8rem;">Install</button>
+        <button id="installDismiss" class="btn btn-outline" style="padding:6px 14px;font-size:.8rem;">Later</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ================= THEME ================= */
+(function initTheme() {
+  const saved = localStorage.getItem('exampro-theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+  else if (window.matchMedia('(prefers-color-scheme: dark)').matches)
+    document.documentElement.setAttribute('data-theme', 'dark');
+})();
+
+document.getElementById('themeToggle').addEventListener('click', () => {
+  const html = document.documentElement;
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('exampro-theme', next);
+});
+
+/* ================= YEAR ================= */
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ================= MOBILE MENU ================= */
+const menuBtn = document.getElementById('menuBtn');
+const primaryNav = document.getElementById('primaryNav');
+menuBtn.addEventListener('click', () => {
+  const open = primaryNav.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', String(open));
+});
+
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    primaryNav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  });
+});
+
+/* ================= EXAM DATA ================= */
+const EXAMS = [
+  { cat:'ssc',     code:'CGL',  name:'SSC CGL',           desc:'Combined Graduate Level — Group B & C posts.',        tests:0 },
+  { cat:'ssc',     code:'CHSL', name:'SSC CHSL',          desc:'10+2 Level — LDC, DEO and Postal Assistant.',         tests:0 },
+  { cat:'ssc',     code:'MTS',  name:'SSC MTS',           desc:'Multi-Tasking Staff — Group C non-gazetted.',         tests:1 },
+  { cat:'ssc',     code:'GD',   name:'SSC GD Constable',  desc:'General Duty Constable in CAPFs & Assam Rifles.',     tests:0 },
+  { cat:'ssc',     code:'CPO',  name:'SSC CPO',           desc:'Central Police Organisation — Sub-Inspector.',        tests:0 },
+  { cat:'ssc',     code:'STN',  name:'SSC Stenographer',  desc:'Stenographer Grade C & D posts.',                     tests:0 },
+  { cat:'railway', code:'NTPC', name:'RRB NTPC',          desc:'Non-Technical Popular Categories — Station Master.',  tests:1 },
+  { cat:'railway', code:'GRPD', name:'RRB Group D',       desc:'Level 1 posts — Track Maintainer, Helper.',           tests:0 },
+  { cat:'railway', code:'ALP',  name:'RRB ALP',           desc:'Assistant Loco Pilot — technical & aptitude.',        tests:0 },
+  { cat:'railway', code:'TECH', name:'RRB Technician',    desc:'Technician Grade III in various trades.',             tests:0 },
+  { cat:'bihar',   code:'BPSC', name:'BPSC CCE',          desc:'Bihar Public Service Commission — Combined Competitive.', tests:0 },
+  { cat:'bihar',   code:'BP',   name:'Bihar Police',      desc:'Constable & Sub-Inspector recruitment.',              tests:0 },
+  { cat:'bihar',   code:'BSSC', name:'Bihar SSC',         desc:'BSSC Inter-Level & Graduate-Level posts.',            tests:0 },
+  { cat:'bihar',   code:'DRG',  name:'Bihar Daroga',      desc:'Sub-Inspector of Police — Bihar.',                    tests:0 },
+  { cat:'other',   code:'UPSC', name:'UPSC Civil Services', desc:'IAS, IPS, IFS and other central services.',         tests:0 },
+  { cat:'other',   code:'BANK', name:'Banking (IBPS/SBI)',  desc:'IBPS PO/Clerk, SBI, RRB and other bank exams.',     tests:0 },
+  { cat:'other',   code:'PCS',  name:'State PCS Exams',     desc:'State-level Public Service Commission exams.',      tests:0 },
+  { cat:'other',   code:'DEF',  name:'Police & Defence',    desc:'NDA, CDS, AFCAT and state police exams.',           tests:0 },
+];
+
+const examGrid = document.getElementById('examGrid');
+let currentCat = 'all';
+
+function renderExams() {
+  const list = EXAMS.filter(e => currentCat === 'all' || e.cat === currentCat);
+  examGrid.innerHTML = list.map(e => `
+    <a href="exam-detail.html?exam=${encodeURIComponent(e.code)}" class="exam-card">
+      <div class="exam-card-head">
+        <div class="exam-code">${e.code}</div>
+        <span class="exam-status ${e.tests > 0 ? 'live' : ''}">${e.tests > 0 ? 'Live' : 'Soon'}</span>
+      </div>
+      <h3 class="exam-name">${e.name}</h3>
+      <p class="exam-desc">${e.desc}</p>
+      <div class="exam-meta">
+        <span class="exam-tests">${e.tests} test${e.tests === 1 ? '' : 's'}</span>
+        <span class="exam-cta">${e.tests > 0 ? 'Start →' : 'Explore →'}</span>
+      </div>
+    </a>
+  `).join('');
+}
+
+document.getElementById('examTabs').addEventListener('click', e => {
+  const tab = e.target.closest('.tab');
+  if (!tab) return;
+  document.querySelectorAll('#examTabs .tab').forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+  currentCat = tab.dataset.cat;
+  renderExams();
+});
+renderExams();
+
+/* ================= STAT COUNTERS ================= */
+function animateCount(el) {
+  const target = +el.dataset.count || 0;
+  if (target === 0) { el.textContent = '0'; return; }
+  let cur = 0;
+  const step = Math.max(1, Math.ceil(target / 40));
+  const interval = setInterval(() => {
+    cur += step;
+    if (cur >= target) { cur = target; clearInterval(interval); }
+    el.textContent = cur.toLocaleString('en-IN');
+  }, 30);
+}
+const statsObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      document.querySelectorAll('.stat-num[data-count]').forEach(animateCount);
+      statsObserver.disconnect();
+    }
+  });
+}, { threshold: 0.3 });
+const statsSection = document.querySelector('.stats');
+if (statsSection) statsObserver.observe(statsSection);
+
+/* ================= SEARCH ================= */
+document.getElementById('headerSearch').addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    const q = e.target.value.trim();
+    window.location.href = q ? `exams.html?q=${encodeURIComponent(q)}` : 'exams.html';
+  }
+});
+/* ================= PROMO CAROUSEL ================= */
+(function initPromoCarousel() {
+  const carousel = document.getElementById('promoCarousel');
+  if (!carousel) return;
+
+  const slides = carousel.querySelectorAll('.promo-slide');
+  const dotsWrap = document.getElementById('promoDots');
+  const prevBtn = document.getElementById('promoPrev');
+  const nextBtn = document.getElementById('promoNext');
+  const progressFill = document.getElementById('promoProgress');
+
+  let current = 0;
+  let timer = null;
+  let progressTimer = null;
+  const SLIDE_DURATION = 5000;   // 5 seconds per slide
+  const PROGRESS_TICK = 50;      // update every 50ms
+  let elapsed = 0;
+  let paused = false;
+
+  /* Build dots */
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'promo-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+  const dots = dotsWrap.querySelectorAll('.promo-dot');
+
+  function goTo(index) {
+    current = (index + slides.length) % slides.length;
+    slides.forEach((s, i) => s.classList.toggle('active', i === current));
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    resetProgress();
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  function resetProgress() {
+    elapsed = 0;
+    progressFill.style.width = '0%';
+  }
+
+  function startProgress() {
+    clearInterval(progressTimer);
+    progressTimer = setInterval(() => {
+      if (paused) return;
+      elapsed += PROGRESS_TICK;
+      const pct = Math.min((elapsed / SLIDE_DURATION) * 100, 100);
+      progressFill.style.width = pct + '%';
+      if (elapsed >= SLIDE_DURATION) {
+        elapsed = 0;
+        next();
+      }
+    }, PROGRESS_TICK);
+  }
+
+  /* Pause on hover (desktop) */
+  carousel.addEventListener('mouseenter', () => { paused = true; });
+  carousel.addEventListener('mouseleave', () => { paused = false; });
+
+  /* Pause when tab hidden */
+  document.addEventListener('visibilitychange', () => {
+    paused = document.hidden;
+  });
+
+  /* Touch swipe */
+  let touchStartX = 0;
+  let touchEndX = 0;
+  carousel.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+  carousel.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 40) {
+      diff > 0 ? next() : prev();
+    }
+  });
+
+  prevBtn.addEventListener('click', prev);
+  nextBtn.addEventListener('click', next);
+
+  /* Keyboard arrows (only when carousel is in viewport focus) */
+  carousel.setAttribute('tabindex', '0');
+  carousel.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+  });
+
+  /* Kick off */
+  goTo(0);
+  startProgress();
+})();
+
+/* ================= PWA ================= */
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  const box = document.getElementById('installPrompt');
+  if (box && !localStorage.getItem('exampro-install-dismissed')) box.style.display = 'block';
+});
+document.getElementById('installBtn')?.addEventListener('click', async () => {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  await deferredPrompt.userChoice;
+  deferredPrompt = null;
+  document.getElementById('installPrompt').style.display = 'none';
+});
+document.getElementById('installDismiss')?.addEventListener('click', () => {
+  localStorage.setItem('exampro-install-dismissed', '1');
+  document.getElementById('installPrompt').style.display = 'none';
+});
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(err => console.warn('SW:', err));
+  });
+}
+
+</script>
+
+</body>
+</html>

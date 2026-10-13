@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Result — ExamPro</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231e3a8a'/%3E%3Cpath d='M9 22V10h13v3h-9v2h8v3h-8v4z' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<style>
+.header-inner { display: flex; align-items: center; gap: 16px; height: var(--header-h); min-width: 0; }
+.brand { flex-shrink: 0; }
+.nav { display: flex; align-items: center; gap: 2px; margin-left: 4px; flex: 0 1 auto; min-width: 0; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; white-space: nowrap; mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 24px), transparent 100%); -webkit-mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 24px), transparent 100%); }
+.nav::-webkit-scrollbar { display: none; }
+.nav-link { padding: 8px 12px; border-radius: 9px; font-size: 0.86rem; font-weight: 500; color: var(--text-muted); transition: color .15s ease, background-color .15s ease; white-space: nowrap; flex-shrink: 0; }
+.header-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; flex-shrink: 0; }
+.search-inline { position: relative; display: none; align-items: center; flex-shrink: 0; }
+.search-inline svg { position: absolute; left: 11px; width: 16px; height: 16px; color: var(--text-subtle); pointer-events: none; }
+.search-inline input { width: 180px; padding: 9px 12px 9px 36px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-soft); color: var(--text); font-size: 0.85rem; outline: none; }
+.search-inline input:focus { border-color: var(--purple-500); box-shadow: 0 0 0 3px color-mix(in srgb, var(--purple-500) 18%, transparent); }
+@media (min-width: 1280px) { .search-inline { display: flex; } .search-inline input { width: 200px; } }
+@media (max-width: 1100px) { .nav { display: none; } .menu-btn { display: grid; } .btn-ghost.hide-sm { display: none; } }
+@media (max-width: 1100px) { .nav.open { display: flex; position: absolute; top: var(--header-h); left: 0; right: 0; flex-direction: column; gap: 2px; padding: 14px; background: var(--bg-card); border-bottom: 1px solid var(--border); box-shadow: var(--shadow-lg); z-index: 99; max-height: calc(100vh - var(--header-h)); overflow-y: auto; margin-left: 0; mask-image: none; -webkit-mask-image: none; } .nav.open .nav-link { padding: 12px 14px; font-size: 0.92rem; width: 100%; } }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand"><span class="brand-mark">EP</span><span class="brand-name">ExamPro</span></a>
+    <nav class="nav" id="primaryNav">
+      <a href="dashboard.html" class="nav-link active">Dashboard</a>
+      <a href="tests.html" class="nav-link">Tests</a>
+      <a href="practice.html" class="nav-link">Practice</a>
+      <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="dashboard.html" class="btn btn-outline">← Back to Dashboard</a>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="section" style="padding-top:32px;">
+    <div class="container">
+
+      <div class="result-hero">
+        <div>
+          <div class="eyebrow">Test completed</div>
+          <h1 id="resultTitle">SSC CGL Tier 1 — Full Mock 01</h1>
+          <p>Here is your performance breakdown. Review the analysis below and plan your next attempt.</p>
+        </div>
+        <div class="score-ring" id="scoreRing" style="--pct:0%">
+          <div class="score-ring-inner">
+            <div class="num" id="scoreNum">0%</div>
+            <div class="lbl">Score</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-grid">
+        <div class="metric-card"><span class="label">Correct</span><span class="value" id="statCorrect">0</span></div>
+        <div class="metric-card"><span class="label">Incorrect</span><span class="value" id="statWrong">0</span></div>
+        <div class="metric-card"><span class="label">Unattempted</span><span class="value" id="statSkip">0</span></div>
+        <div class="metric-card"><span class="label">Accuracy</span><span class="value" id="statAcc">0%</span></div>
+      </div>
+
+      <div class="dash-card" style="margin-bottom:20px;">
+        <div class="dash-card-head"><h3>Section-wise analysis</h3></div>
+        <div class="analysis-row">
+          <span class="name">General Intelligence &amp; Reasoning</span>
+          <span class="pct" id="anReasoning">0%</span>
+          <span></span>
+          <div class="bar"><span id="anReasoningBar" style="width:0%"></span></div>
+        </div>
+        <div class="analysis-row">
+          <span class="name">General Awareness</span>
+          <span class="pct" id="anGK">0%</span>
+          <span></span>
+          <div class="bar"><span id="anGKBar" style="width:0%"></span></div>
+        </div>
+        <div class="analysis-row">
+          <span class="name">Quantitative Aptitude</span>
+          <span class="pct" id="anQuant">0%</span>
+          <span></span>
+          <div class="bar"><span id="anQuantBar" style="width:0%"></span></div>
+        </div>
+        <div class="analysis-row">
+          <span class="name">English Comprehension</span>
+          <span class="pct" id="anEnglish">0%</span>
+          <span></span>
+          <div class="bar"><span id="anEnglishBar" style="width:0%"></span></div>
+        </div>
+      </div>
+
+      <div class="dash-card">
+        <div class="dash-card-head">
+          <h3>Question-wise review</h3>
+          <a href="tests.html">Retake test</a>
+        </div>
+        <div id="reviewList"></div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none;padding-top:0;">
+      <span>© <span id="year">2026</span> ExamPro. All rights reserved.</span>
+      <span>Made in India 🇮🇳</span>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+const QUESTIONS = [
+  { q:'If a train travels 240 km in 3 hours, what is its average speed?', opts:['60 km/h','80 km/h','90 km/h','100 km/h'], correct:1 },
+  { q:'Which of the following is the largest planet in our solar system?', opts:['Saturn','Jupiter','Neptune','Earth'], correct:1 },
+  { q:'Find the next number in the series: 2, 6, 12, 20, 30, ?', opts:['40','42','44','46'], correct:1 },
+  { q:'Who wrote the Indian National Anthem?', opts:['Bankim Chandra Chatterjee','Rabindranath Tagore','Sarojini Naidu','Mahatma Gandhi'], correct:1 },
+  { q:'The value of 15% of 400 is:', opts:['45','60','75','90'], correct:1 },
+];
+const stored = JSON.parse(localStorage.getItem('exampro-last-result') || 'null') || { answers: QUESTIONS.map(() => null) };
+const userAns = stored.answers || QUESTIONS.map(() => null);
+
+let correct = 0, wrong = 0, skip = 0;
+userAns.forEach((a, i) => {
+  if (a === null) skip++;
+  else if (a === QUESTIONS[i].correct) correct++;
+  else wrong++;
+});
+const total = QUESTIONS.length;
+const pct = Math.round((correct / total) * 100);
+
+document.getElementById('scoreRing').style.setProperty('--pct', pct + '%');
+document.getElementById('scoreNum').textContent = pct + '%';
+document.getElementById('statCorrect').textContent = correct;
+document.getElementById('statWrong').textContent = wrong;
+document.getElementById('statSkip').textContent = skip;
+document.getElementById('statAcc').textContent = (correct + wrong ? Math.round((correct / (correct + wrong)) * 100) : 0) + '%';
+
+/* Fake per-section analysis from the same answers */
+const sections = [
+  { name:'anReasoning', bar:'anReasoningBar' },
+  { name:'anGK',        bar:'anGKBar' },
+  { name:'anQuant',     bar:'anQuantBar' },
+  { name:'anEnglish',   bar:'anEnglishBar' },
+];
+sections.forEach(s => {
+  const v = pct;
+  document.getElementById(s.name).textContent = v + '%';
+  document.getElementById(s.bar).style.width = v + '%';
+});
+
+/* Review list */
+document.getElementById('reviewList').innerHTML = QUESTIONS.map((q, i) => {
+  const ua = userAns[i];
+  return `
+    <div style="padding:16px 0;border-bottom:1px solid var(--border);">
+      <div style="display:flex;justify-content:space-between;gap:12px;margin-bottom:10px;">
+        <strong style="font-size:.9rem;">Q${i + 1}. ${q.q}</strong>
+        <span class="${ua === q.correct ? 'chip-sm' : 'chip-sm'}" style="background:${ua === q.correct ? 'color-mix(in srgb, var(--success) 18%, transparent)' : ua === null ? '' : 'color-mix(in srgb, var(--danger) 18%, transparent)'};color:${ua === q.correct ? 'var(--success)' : ua === null ? 'var(--text-subtle)' : 'var(--danger)'};font-weight:700;white-space:nowrap;">${ua === q.correct ? 'Correct' : ua === null ? 'Skipped' : 'Incorrect'}</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        ${q.opts.map((o, j) => {
+          const isCorrect = j === q.correct;
+          const isUser = j === ua;
+          let color = 'var(--text-muted)';
+          let weight = '500';
+          if (isCorrect) { color = 'var(--success)'; weight = '700'; }
+          else if (isUser) { color = 'var(--danger)'; weight = '700'; }
+          return `<div style="font-size:.85rem;color:${color};font-weight:${weight};">
+            ${String.fromCharCode(65 + j)}. ${o}${isCorrect ? ' ✓' : ''}${isUser && !isCorrect ? ' (your answer)' : ''}
+          </div>`;
+        }).join('')}
+      </div>
+    </div>
+  `;
+}).join('');
+</script>
+</body>
+</html>

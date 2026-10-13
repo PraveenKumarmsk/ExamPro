@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Login — ExamPro</title>
+<meta name="description" content="Login to ExamPro to continue your government exam preparation." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231e3a8a'/%3E%3Cpath d='M9 22V10h13v3h-9v2h8v3h-8v4z' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<style>
+.header-inner { display: flex; align-items: center; gap: 16px; height: var(--header-h); min-width: 0; }
+.brand { flex-shrink: 0; }
+.nav { display: flex; align-items: center; gap: 2px; margin-left: 4px; flex: 0 1 auto; min-width: 0; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; white-space: nowrap; mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 24px), transparent 100%); -webkit-mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 24px), transparent 100%); }
+.nav::-webkit-scrollbar { display: none; }
+.nav-link { padding: 8px 12px; border-radius: 9px; font-size: 0.86rem; font-weight: 500; color: var(--text-muted); transition: color .15s ease, background-color .15s ease; white-space: nowrap; flex-shrink: 0; }
+.header-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; flex-shrink: 0; }
+.search-inline { position: relative; display: none; align-items: center; flex-shrink: 0; }
+.search-inline svg { position: absolute; left: 11px; width: 16px; height: 16px; color: var(--text-subtle); pointer-events: none; }
+.search-inline input { width: 180px; padding: 9px 12px 9px 36px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-soft); color: var(--text); font-size: 0.85rem; outline: none; }
+.search-inline input:focus { border-color: var(--purple-500); box-shadow: 0 0 0 3px color-mix(in srgb, var(--purple-500) 18%, transparent); }
+@media (min-width: 1280px) { .search-inline { display: flex; } .search-inline input { width: 200px; } }
+@media (max-width: 1100px) { .nav { display: none; } .menu-btn { display: grid; } .btn-ghost.hide-sm { display: none; } }
+@media (max-width: 1100px) { .nav.open { display: flex; position: absolute; top: var(--header-h); left: 0; right: 0; flex-direction: column; gap: 2px; padding: 14px; background: var(--bg-card); border-bottom: 1px solid var(--border); box-shadow: var(--shadow-lg); z-index: 99; max-height: calc(100vh - var(--header-h)); overflow-y: auto; margin-left: 0; mask-image: none; -webkit-mask-image: none; } .nav.open .nav-link { padding: 12px 14px; font-size: 0.92rem; width: 100%; } }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">EP</span>
+      <span class="brand-name">ExamPro</span>
+    </a>
+    <nav class="nav" id="primaryNav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="exams.html" class="nav-link">All Exams</a>
+      <a href="tests.html" class="nav-link">Mock Tests</a>
+      <a href="papers.html" class="nav-link">Previous Papers</a>
+      <a href="practice.html" class="nav-link">Practice</a>
+      <a href="materials.html" class="nav-link">Materials</a>
+      <a href="current-affairs.html" class="nav-link">Current Affairs</a>
+      <a href="leaderboard.html" class="nav-link">Results</a>
+      <a href="pricing.html" class="nav-link">Pricing</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="register.html" class="btn btn-primary">Get Started</a>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="auth-page">
+  <div class="auth-card">
+    <div class="auth-head">
+      <h1>Welcome back</h1>
+      <p>Login to continue your preparation</p>
+    </div>
+
+    <form id="loginForm" novalidate>
+      <div class="form-group">
+        <label class="form-label" for="email">Email address</label>
+        <input class="form-input" type="email" id="email" placeholder="you@example.com" autocomplete="email" required />
+        <div class="form-error"></div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="password">Password</label>
+        <input class="form-input" type="password" id="password" placeholder="Enter your password" autocomplete="current-password" required />
+        <div class="form-error"></div>
+      </div>
+
+      <div class="form-row">
+        <label class="form-check">
+          <input type="checkbox" id="remember" /> Remember me
+        </label>
+        <a href="#" style="color:var(--purple-600);font-weight:600;">Forgot password?</a>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="width:100%;padding:13px;">Login</button>
+    </form>
+
+    <div class="auth-divider">or continue with</div>
+
+    <div class="social-row">
+      <button class="social-btn" type="button">🇬 Google</button>
+      <button class="social-btn" type="button">📱 Phone OTP</button>
+    </div>
+
+    <p class="auth-alt">
+      Don't have an account? <a href="register.html">Create one</a>
+    </p>
+  </div>
+</main>
+
+<script src="main.js"></script>
+<script>
+document.getElementById('loginForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const email = document.getElementById('email');
+  const password = document.getElementById('password');
+  let ok = true;
+
+  clearError(email); clearError(password);
+
+  if (!validateEmail(email.value)) { showError(email, 'Enter a valid email'); ok = false; }
+  if (password.value.length < 6) { showError(password, 'Password must be at least 6 characters'); ok = false; }
+
+  if (!ok) return;
+
+  // Demo only — replace with real API
+  saveUser({ email: email.value, name: email.value.split('@')[0] });
+  window.location.href = 'dashboard.html';
+});
+</script>
+</body>
+</html>

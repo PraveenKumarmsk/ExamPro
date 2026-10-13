@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin Login — ExamPro</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231e3a8a'/%3E%3Cpath d='M9 22V10h13v3h-9v2h8v3h-8v4z' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../style.css" />
+<link rel="stylesheet" href="../admin.css" />
+<style>
+/* Inline fallback styles — kicks in even if admin.css fails to load */
+.admin-login {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 40px 20px;
+  background: #f4f6fb;
+}
+.admin-login-card {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  border: 1px solid #e5e8f0;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(15,23,42,.1);
+  padding: 36px 32px;
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: #0f172a;
+}
+.admin-login-head { text-align: center; margin-bottom: 26px; }
+.admin-login-head .mark {
+  width: 56px; height: 56px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #1e3a8a, #7c3aed);
+  display: grid; place-items: center;
+  color: #fff;
+  font-weight: 900;
+  font-size: 1.1rem;
+  margin: 0 auto 14px;
+}
+.admin-login-head h1 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.admin-login-head p { font-size: .85rem; color: #64748b; }
+.admin-form-group { margin-bottom: 18px; }
+.admin-form-label {
+  display: block;
+  font-size: .82rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #0f172a;
+}
+.admin-form-input {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1.5px solid #e5e8f0;
+  background: #f8fafc;
+  color: #0f172a;
+  font-size: .9rem;
+  outline: none;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+.admin-form-input:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124,58,237,.18);
+  background: #fff;
+}
+.admin-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: .88rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all .15s ease;
+}
+.admin-btn-primary {
+  background: linear-gradient(135deg, #1e3a8a, #7c3aed);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(124,58,237,.28);
+}
+.admin-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(124,58,237,.35);
+}
+.admin-login-note {
+  margin-top: 20px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: rgba(124,58,237,.06);
+  border: 1px solid rgba(124,58,237,.15);
+  font-size: .78rem;
+  color: #6d28d9;
+  line-height: 1.5;
+}
+.admin-error {
+  display: none;
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  font-size: .82rem;
+  font-weight: 600;
+}
+.admin-error.show { display: block; }
+</style>
+</head>
+<body class="admin-body">
+
+<main class="admin-login">
+  <div class="admin-login-card">
+    <div class="admin-login-head">
+      <div class="mark">EP</div>
+      <h1>Admin Panel</h1>
+      <p>Sign in to manage ExamPro</p>
+    </div>
+
+    <div class="admin-error" id="loginError"></div>
+
+    <form id="adminLoginForm" novalidate>
+      <div class="admin-form-group">
+        <label class="admin-form-label" for="adminEmail">Admin email</label>
+        <input class="admin-form-input" id="adminEmail" type="email" placeholder="admin@exampro.com" autocomplete="username" required />
+      </div>
+
+      <div class="admin-form-group">
+        <label class="admin-form-label" for="adminPassword">Password</label>
+        <input class="admin-form-input" id="adminPassword" type="password" placeholder="••••••••" autocomplete="current-password" required />
+      </div>
+
+      <label style="display:flex;align-items:center;gap:8px;font-size:.85rem;color:#64748b;margin-bottom:20px;font-family:'Inter',sans-serif;">
+        <input type="checkbox" id="remember" style="accent-color:#7c3aed;" /> Keep me signed in
+      </label>
+
+      <button type="submit" class="admin-btn admin-btn-primary" style="width:100%;padding:13px;">
+        Sign In →
+      </button>
+
+      <div class="admin-login-note">
+        <strong>Demo credentials:</strong><br/>
+        Email: <code>admin@exampro.com</code><br/>
+        Password: <code>admin123</code>
+      </div>
+
+      <p style="text-align:center;font-size:.85rem;color:#64748b;margin-top:20px;font-family:'Inter',sans-serif;">
+        <a href="../index.html" style="color:#7c3aed;font-weight:600;text-decoration:none;">← Back to ExamPro</a>
+      </p>
+    </form>
+  </div>
+</main>
+
+<script>
+/* Self-contained — no dependency on admin.js */
+(function() {
+  'use strict';
+
+  const EMAIL = 'admin@exampro.com';
+  const PASSWORD = 'admin123';
+
+  const form = document.getElementById('adminLoginForm');
+  const emailInput = document.getElementById('adminEmail');
+  const passwordInput = document.getElementById('adminPassword');
+  const errorBox = document.getElementById('loginError');
+
+  function showError(msg) {
+    errorBox.textContent = msg;
+    errorBox.classList.add('show');
+  }
+  function clearError() {
+    errorBox.classList.remove('show');
+    errorBox.textContent = '';
+  }
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    clearError();
+
+    const email = emailInput.value.trim();
+    const password = passwordInput.value;
+
+    // Basic validation
+    if (!email || !password) {
+      showError('Please fill in both email and password.');
+      return;
+    }
+
+    // Check credentials
+    if (email !== EMAIL || password !== PASSWORD) {
+      showError('Invalid email or password. Use the demo credentials shown below.');
+      passwordInput.value = '';
+      passwordInput.focus();
+      return;
+    }
+
+    // ✅ Success — save session and redirect
+    try {
+      localStorage.setItem('exampro-admin', JSON.stringify({
+        email: email,
+        name: 'Admin',
+        role: 'super',
+        loginAt: new Date().toISOString()
+      }));
+    } catch (err) {
+      showError('Browser storage is disabled. Please enable cookies/localStorage.');
+      return;
+    }
+
+    // Redirect to admin dashboard (same folder)
+    window.location.href = 'dashboard.html';
+  });
+
+  // Auto-focus email on load
+  emailInput.focus();
+
+  // Optional: press Enter in password triggers submit (already default for forms)
+})();
+</script>
+</body>
+</html>
