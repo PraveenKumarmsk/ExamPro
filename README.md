@@ -23,3 +23,12 @@ No build step. Just serve the folder:
 npx serve .
 # or
 python3 -m http.server 8000
+```
+
+## 📄 License
+
+Copyright © 2026 Praveen Kumar. All Rights Reserved.
+
+This project is proprietary. Unauthorized copying, modification, distribution, or commercial use of the source code is prohibited without prior written permission from the copyright owner.
+
+For more information, see the [LICENSE](LICENSE) file.
